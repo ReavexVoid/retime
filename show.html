@@ -1,117 +1,54 @@
-let id=
-new URLSearchParams(location.search)
-.get("id");
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ReTime</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
 
 
-fetch("shows/"+id+".json")
-
-.then(r=>r.json())
-
-.then(show=>{
+<body>
 
 
-document.title=show.title;
+<header class="top">
 
-
-let html=`
-
-
-<h1>${show.title}</h1>
-
-
-<img class="poster"
-src="${show.poster}">
-
-
-<p>
-${show.description}
-</p>
-
-
-`;
-
-
-show.seasons.forEach(season=>{
-
-
-html+=`
-
-<h2>
-Season ${season.number}
-</h2>
-
-`;
-
-
-season.episodes.forEach(ep=>{
-
-
-let episodeID=
-`${id}-s${season.number}e${ep.number}`;
-
-
-let watched=
-isWatched(episodeID);
-
-
-
-html+=`
-
-<div class="episode">
-
-
-<b>
-S${season.number}
-E${ep.number}
-</b>
-
--
-${ep.title}
-
-
-<button onclick="toggle('${episodeID}')">
-
-${watched?"✓ Watched":"Mark Watched"}
-
+<button class="back-btn" onclick="history.back()">
+← Back
 </button>
 
 
-</div>
+<h1 id="title">
+Loading...
+</h1>
 
 
-`;
-
-
-});
-
-
-});
-
-
-document.getElementById("content")
-.innerHTML=html;
+</header>
 
 
 
-});
+<main id="content">
+
+Loading show...
+
+</main>
 
 
 
-function toggle(id){
 
 
-if(isWatched(id)){
-
-removeWatched(id);
-
-}else{
-
-addWatched(id);
-
-}
+<script src="assets/js/tracker.js"></script>
 
 
-location.reload();
+<script src="assets/js/show.js"></script>
 
 
-}
+
+</body>
+
+</html>
