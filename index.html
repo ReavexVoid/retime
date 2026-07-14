@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ReTime</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="top">
+
+<div class="logo">
+⏱ ReTime
+</div>
+
+
+<button class="search-btn" onclick="openSearch()">
+🔍
+</button>
+
+
+</header>
+
+
+
+
+
+<!-- SEARCH -->
+
+<div id="searchBox" class="search-hidden">
+
+<input
+id="search"
+placeholder="Search shows..."
+autocomplete="off"
+>
+
+
+<div id="searchResults"></div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+
+<div>
+
+
+<h1>
+Track every story
+</h1>
+
+
+<p>
+Your personal TV universe
+</p>
+
+
+<button onclick="goTrending()">
+
+Start Watching
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- TRENDING -->
+
+<section>
+
+
+<h2>
+🔥 Trending
+</h2>
+
+
+<div class="row" id="trending">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- CONTINUE WATCHING -->
+
+<section>
+
+
+<h2>
+▶ Continue Watching
+</h2>
+
+
+<div class="row" id="continue">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+
+<a href="index.html">
+🏠
+</a>
+
+
+<a href="profile.html">
+👤
+</a>
+
+
+<a href="settings.html">
+⚙️
+</a>
+
+
+</nav>
+
+
+
+
+
+
+
+<script>
+
+
+let allShows = [];
+
+
+
+
+// LOAD SHOW DATABASE
+
+fetch("data/shows.json")
+
+.then(res => res.json())
+
+.then(shows => {
+
+
+allShows = shows;
+
+
+loadShows(shows);
+
+
+});
+
+
+
+
+
+
+
+// DISPLAY SHOW CARDS
+
+function loadShows(shows){
+
+
+let container =
+document.getElementById("trending");
+
+
+container.innerHTML="";
+
+
+
+shows.forEach(show=>{
+
+
+let card =
+document.createElement("div");
+
+
+card.className="card";
+
+
+
+card.innerHTML=`
+
+<img src="${show.poster}">
+
+
+<p>
+${show.title}
+</p>
+
+`;
+
+
+
+card.onclick=()=>{
+
+
+window.location.href =
+"show.html?id="+show.id;
+
+
+};
+
+
+
+container.appendChild(card);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+// SEARCH OPEN
+
+function openSearch(){
+
+
+let box =
+document.getElementById("searchBox");
+
+
+box.classList.toggle(
+"search-hidden"
+);
+
+
+
+if(!box.classList.contains("search-hidden")){
+
+
+document
+.getElementById("search")
+.focus();
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+// LIVE SEARCH
+
+
+document
+.getElementById("search")
+.addEventListener(
+"input",
+function(){
+
+
+let query =
+this.value
+.toLowerCase()
+.trim();
+
+
+
+let results =
+document.getElementById(
+"searchResults"
+);
+
+
+
+results.innerHTML="";
+
+
+
+if(query.length === 0){
+
+
+results.style.display="none";
+
+
+return;
+
+
+}
+
+
+
+
+
+let matches =
+allShows.filter(show =>
+
+
+show.title
+.toLowerCase()
+.includes(query)
+
+
+);
+
+
+
+
+
+
+if(matches.length===0){
+
+
+results.innerHTML=`
+
+<div class="no-result">
+
+No shows found
+
+</div>
+
+`;
+
+
+results.style.display="block";
+
+
+return;
+
+
+}
+
+
+
+
+
+
+results.style.display="block";
+
+
+
+
+
+matches
+.slice(0,10)
+.forEach(show=>{
+
+
+let item =
+document.createElement("div");
+
+
+
+item.className=
+"search-result";
+
+
+
+item.innerHTML=`
+
+<img src="${show.poster}">
+
+
+<div>
+
+<b>
+${show.title}
+</b>
+
+
+<br>
+
+
+<span>
+${show.year || ""}
+</span>
+
+
+</div>
+
+
+`;
+
+
+
+item.onclick=()=>{
+
+
+window.location.href =
+"show.html?id="+show.id;
+
+
+};
+
+
+
+results.appendChild(item);
+
+
+
+});
+
+
+
+
+});
+
+
+
+
+
+
+
+
+// SCROLL TO SHOWS
+
+function goTrending(){
+
+
+document
+.getElementById("trending")
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+
+}
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+{
+  "id": "squid-game",
+  "title": "Squid Game",
+  "type": "series",
+
+  "poster": "assets/images/posters/squid-game.jpg",
+
+  "description": "Hundreds of cash-strapped players accept a mysterious invitation to compete in childhood games for a huge prize.",
+
+  "metadata": {
+    "release_year": 2021,
+    "status": "Ended",
+    "genres": [
+      "Drama",
+      "Thriller",
+      "Mystery",
+      "Survival"
+    ],
+    "country": "South Korea",
+    "language": "Korean"
+  },
+
+  "seasons": [
+
+    {
+      "number": 1,
+      "episodes": [
+        {
+          "number": 1,
+          "title": "Red Light, Green Light",
+          "air_date": "2021-09-17",
+          "runtime": 60
+        },
+        {
+          "number": 2,
+          "title": "Hell",
+          "air_date": "2021-09-17",
+          "runtime": 63
+        },
+        {
+          "number": 3,
+          "title": "The Man with the Umbrella",
+          "air_date": "2021-09-17",
+          "runtime": 55
+        },
+        {
+          "number": 4,
+          "title": "Stick to the Team",
+          "air_date": "2021-09-17",
+          "runtime": 56
+        },
+        {
+          "number": 5,
+          "title": "A Fair World",
+          "air_date": "2021-09-17",
+          "runtime": 54
+        },
+        {
+          "number": 6,
+          "title": "Gganbu",
+          "air_date": "2021-09-17",
+          "runtime": 63
+        },
+        {
+          "number": 7,
+          "title": "VIPS",
+          "air_date": "2021-09-17",
+          "runtime": 58
+        },
+        {
+          "number": 8,
+          "title": "Front Man",
+          "air_date": "2021-09-17",
+          "runtime": 33
+        },
+        {
+          "number": 9,
+          "title": "One Lucky Day",
+          "air_date": "2021-09-17",
+          "runtime": 55
+        }
+      ]
+    },
+
+
+    {
+      "number": 2,
+      "episodes": [
+        {
+          "number": 1,
+          "title": "Bread and Lottery",
+          "air_date": "2024-12-26",
+          "runtime": 65
+        },
+        {
+          "number": 2,
+          "title": "Halloween Party",
+          "air_date": "2024-12-26",
+          "runtime": 52
+        },
+        {
+          "number": 3,
+          "title": "001",
+          "air_date": "2024-12-26",
+          "runtime": 61
+        },
+        {
+          "number": 4,
+          "title": "Six Legs",
+          "air_date": "2024-12-26",
+          "runtime": 63
+        },
+        {
+          "number": 5,
+          "title": "One More Game",
+          "air_date": "2024-12-26",
+          "runtime": 76
+        },
+        {
+          "number": 6,
+          "title": "O X",
+          "air_date": "2024-12-26",
+          "runtime": 52
+        },
+        {
+          "number": 7,
+          "title": "Friend or Foe",
+          "air_date": "2024-12-26",
+          "runtime": 60
+        }
+      ]
+    },
+
+
+    {
+      "number": 3,
+      "episodes": [
+        {
+          "number": 1,
+          "title": "Keys and Knives",
+          "air_date": "2025-06-27",
+          "runtime": 57
+        },
+        {
+          "number": 2,
+          "title": "Starry Night",
+          "air_date": "2025-06-27",
+          "runtime": 60
+        },
+        {
+          "number": 3,
+          "title": "It's Not Your Fault",
+          "air_date": "2025-06-27",
+          "runtime": 66
+        },
+        {
+          "number": 4,
+          "title": "222",
+          "air_date": "2025-06-27",
+          "runtime": 66
+        },
+        {
+          "number": 5,
+          "title": "○△□",
+          "air_date": "2025-06-27",
+          "runtime": 62
+        },
+        {
+          "number": 6,
+          "title": "Humans Are...",
+          "air_date": "2025-06-27",
+          "runtime": 55
+        }
+      ]
+    }
+
+  ]
+}

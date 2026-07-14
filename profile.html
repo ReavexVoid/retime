@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profile - ReTime</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="top">
+
+<button class="back-btn" onclick="goBack()">
+← Back to Menu
+</button>
+
+
+<h1>
+Profile
+</h1>
+
+
+</header>
+
+
+
+<main class="profile-page">
+
+
+<div class="profile-card">
+
+
+<img 
+src="assets/images/avatar.png"
+class="avatar"
+>
+
+
+<h2>
+Guest User
+</h2>
+
+
+<p>
+TV enthusiast
+</p>
+
+
+</div>
+
+
+
+
+<div class="stats-card">
+
+
+<div>
+<h2 id="shows">
+0
+</h2>
+<p>
+Shows
+</p>
+</div>
+
+
+<div>
+<h2 id="episodes">
+0
+</h2>
+<p>
+Episodes
+</p>
+</div>
+
+
+<div>
+<h2 id="hours">
+0
+</h2>
+<p>
+Hours
+</p>
+</div>
+
+
+</div>
+
+
+
+
+
+<h2>
+Achievements
+</h2>
+
+
+
+<div class="badges">
+
+
+<div class="badge">
+
+<h1>
+🎬
+</h1>
+
+<p>
+First Episode
+</p>
+
+</div>
+
+
+
+<div class="badge">
+
+<h1>
+🔥
+</h1>
+
+<p>
+Binge Watcher
+</p>
+
+</div>
+
+
+
+<div class="badge">
+
+<h1>
+⭐
+</h1>
+
+<p>
+100 Episodes
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+</main>
+
+
+
+
+<script src="assets/js/tracker.js"></script>
+
+
+<script>
+
+
+function goBack(){
+
+window.location.href="index.html";
+
+}
+
+
+
+
+let watched =
+JSON.parse(
+localStorage.getItem("watched")
+|| "[]"
+);
+
+
+
+document.getElementById("episodes")
+.innerText =
+watched.length;
+
+
+
+document.getElementById("shows")
+.innerText =
+new Set(
+watched.map(
+x=>x.split("-")[0]
+)
+).size;
+
+
+
+document.getElementById("hours")
+.innerText =
+Math.floor(
+watched.length * 0.8
+);
+
+
+
+</script>
+
+
+</body>
+
+</html>
